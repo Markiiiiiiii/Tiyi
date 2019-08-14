@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+    <yycalendar 
+      show='{{isShow}}' 
+      am_start="{{am_start}}" 
+      am_end="{{am_end}}" 
+      pm_start="{{pm_start}}" 
+      pm_end="{{pm_end}}" 
+      nm_start="{{nm_start}}" 
+      nm_end="{{nm_end}}" 
+      am_title="{{am_title}}"
+      pm_title="{{pm_title}}"
+      nm_title="{{nm_title}}"
+      themeColor="{{themeColor}}" 
+      apn_title="{{apn_title}}"
+      apn_disabled_list="{{apn_disabled_list}}"
+      apn_selecttitle="{{apn_selecttitle}}"
+      calendarType="{{calendarType}}" 
+      bind:yybindchange="_yybindchange" 
+      bind:yybindhide="_yybindhide"/>
+  </view>
+</view>
